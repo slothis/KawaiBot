@@ -13,7 +13,7 @@ module Bot::DiscordCommands
   module Konichiwa
     extend Discordrb::Commands::CommandContainer
     command :hey do |event|
-      if event.message.id == Bot::CONFIG.owner
+      if event.message.author == Bot::CONFIG.owner
         event.send   'Hey boss. :)  ' + "<@#{event.message.author.id}>  "
 
       elsif event.message.id == "<@107292203696525312>"
@@ -78,3 +78,13 @@ module Bot::DiscordCommands
     end
   end
 end
+
+module Bot::DiscordCommands
+  module Deniz
+    extend Discordrb::Commands::CommandContainer
+    command :deniz do |event|
+
+        event.send "Sanatçı olduğumu söylemiş miydim ?"
+      end
+    end
+  end
