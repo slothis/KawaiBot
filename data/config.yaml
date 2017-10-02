@@ -1,0 +1,16 @@
+---
+# Discord API client ID
+client_id: 358671057512693762
+
+# Discord API client token
+token: MzU4NjcxMDU3NTEyNjkzNzYy.DKFkQQ.nlVG_a40cHEsk-lnHN0uO6x4z_E
+
+
+# Command prefix
+prefix: '#'
+
+# ID of bot owner
+owner: 155741795551019017
+
+# game the bot is playing
+game: 'Kakashi-Sensei'
