@@ -88,3 +88,35 @@ module Bot::DiscordCommands
       end
     end
   end
+
+module Bot::DiscordCommands
+  module Tolga
+    extend Discordrb::Commands::CommandContainer
+    command :tolga do |event|
+
+      event.send "Ben bir animeciyim. <:vohiyo:342792423165919232> "
+    end
+  end
+end
+
+module Bot::DiscordCommands
+  module Ask
+    extend Discordrb::Commands::CommandContainer
+    command :ask do |event, *args|
+
+      v = event.send "#{args[0]} ile #{args[1]} arasındaki aşk oranı hesaplanıyor..."
+
+      a = rand(1..100)
+      sleep(1)
+       if args[0] == "<@183251320365514767>" && args[1] == "<@358672313362677761>"
+         event.send "#{args[0]} ile #{args[1]} arasındaki aşk oranı %100 <:KappaPride:353602260456046592>"
+
+       elsif args[0] == "<@358672313362677761>" && args[1] == "<@183251320365514767>"
+
+          event.send "#{args[0]} ile #{args[1]} arasındaki aşk oranı %100 <:KappaPride:353602260456046592>"
+        else
+            event.send "#{args[0]} ile #{args[1]} arasındaki aşk oranı %#{a} <:KappaPride:353602260456046592>"
+        end
+    end
+  end
+end
