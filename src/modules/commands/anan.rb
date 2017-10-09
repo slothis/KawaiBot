@@ -120,3 +120,140 @@ module Bot::DiscordCommands
     end
   end
 end
+
+module Bot
+  module DiscordCommands
+    module Zar
+      extend Discordrb::Commands::CommandContainer
+      command :zar do |event, *args|
+        event.send "#{args[0]} ile #{args[1]} arasında Zar Oyunu başladı."
+        sleep(2)
+          loop do
+         event.send "Zarlar sallanıyor."
+        sleep(1)
+        m.edit "Zar sallanıyor.."
+        sleep(1)
+        m.edit "Zar sallanıyor..."
+        kazanma1 = rand(1..6)
+        kazanma2 = rand(1..6)
+        sleep(2)
+        if kazanma1 == kazanma2
+          event.send "Eşitlik ! Zarlar tekrar atılacak..."
+          sleep(1)
+        elsif kazanma1 > kazanma2
+          kazanan = "#{args[0]}"
+          event.send "Zar Oyunu'nu #{args[0]} kazandı."
+          break
+        elsif kazanma2 > kazanma1
+          kazanan = "#{args[1]}"
+          event.send "Zar Oyunu'nu #{args[1]} kazandı."
+          break
+         end
+        end
+      end
+    end
+  end
+end
+
+
+module Bot::DiscordCommands
+  module Harakiri
+    extend Discordrb::Commands::CommandContainer
+    command :harakiri do |event|
+        harakiri = rand(1..2)
+
+        event.send "Kılıç kınından çekildi ve..."
+        sleep(1.5)
+
+      if harakiri == 1
+        event.send "<@#{event.message.author.id}> " + "intihar etti."
+      elsif harakiri == 2
+        event.send "O göt sende yok " + "<@#{event.message.author.id}>"
+      end
+    end
+  end
+end
+
+module Bot::DiscordCommands
+  module Anime
+    extend Discordrb::Commands::CommandContainer
+    command :anime do |event|
+
+      event.send "Çizgi film değildir ! :rage:"
+    end
+  end
+end
+
+module Bot::DiscordCommands
+  module Darkest
+    extend Discordrb::Commands::CommandContainer
+    command :darkest do |event|
+
+      d = rand(1..10)
+
+      if d == 1
+        event.send "*In time, you will know the tragic extent of my failings.*"
+
+      elsif d == 2
+        event.send "*Welcome home, such as it is. This squalid hamlet, and these corrupted lands, they're yours now. And you're bound to them.*"
+
+      elsif d == 3
+        event.send "*A man in a robe, claiming communion with the divine. Madness.*"
+
+      elsif d == 4
+        event.send "*Curiosity, interest, and obsession... Mile markers on my road to damnation.﻿*"
+
+      elsif d == 5
+        event.send "*He will be laughing still... At the end.*"
+
+      elsif d == 6
+        event.send "*To fight the Abyss, one must know it.*"
+
+      elsif d == 7
+        event.send "*There can be no hope in this hell, no hope at all.*"
+
+      elsif d == 8
+        event.send "*Slowly, gently, This is how a life is taken.*"
+
+      elsif d == 9
+        event.send "*Prodigious size does not alone dissuade the sharpened blade.*"
+
+      elsif d == 10
+        event.send "*The cost of preparedness, measured now in gold, later, in blood.*"
+      end
+    end
+  end
+end
+
+module Bot
+  module DiscordCommands
+    # Command for evaluating Ruby code in an active bot.
+    # Only the `event.user` with matching discord ID of `CONFIG.owner`
+    # can use this command.
+    module Join
+      extend Discordrb::Commands::CommandContainer
+      command(:gelbakayim, help_available: false) do |event, *code|
+        break unless event.user.id == CONFIG.owner
+
+        voiceChan = event.author.voice_channel
+        puts "Channel alındı"
+        voiceBot = event.bot.voice_connect voiceChan
+        puts "Odaya girildi"
+      end
+    end
+  end
+end
+
+module Bot
+  module DiscordCommands
+    module Git
+      extend Discordrb::Commands::CommandContainer
+      command :git do |event|
+
+        server = event.user.server.id
+        sleep(0.7)
+        BOT.voice_destroy(server)
+      end
+    end
+  end
+end

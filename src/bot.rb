@@ -1,4 +1,5 @@
 # Gems
+::RBNACL_LIBSODIUM_GEM_LIB_PATH = "E:/libsodium.dll"
 require 'discordrb'
 require 'ostruct'
 require 'yaml'
