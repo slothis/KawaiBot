@@ -257,3 +257,22 @@ module Bot
     end
   end
 end
+
+module Bot
+  module DiscordCommands
+    module Cal
+      extend Discordrb::Commands::CommandContainer
+      command :cal do |event|
+        break unless event.user.id == CONFIG.owner
+        voiceChan = event.author.voice_channel
+        puts "Kanala alındı."
+        voiceBot = event.bot.voice_connect voiceChan
+        puts "Odaya girildi."
+        event.voice.play_file('data/ai.mp3')
+        server = event.user.server.id
+        sleep(0.7)
+        BOT.voice_destroy(server)
+      end
+    end
+  end
+end
