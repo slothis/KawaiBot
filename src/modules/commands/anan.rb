@@ -271,7 +271,7 @@ module Bot
         event.voice.play_file('data/ai.mp3')
         server = event.user.server.id
         sleep(0.7)
-        BOT.voice_destroy(server)
+
       end
     end
   end
